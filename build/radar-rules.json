@@ -109,12 +109,12 @@
     "_name": "BT 之家 1LOU 站",
     ".": [
       {
-        "title": "搜索",
+        "title": "通用",
         "docs": "https://docs.rsshub.app/routes/multimedia",
         "source": [
-          "/:path"
+          "/:params"
         ],
-        "target": "/1lou/:path"
+        "target": "/1lou(_,url)=>{url=new URL(url);return`/1lou${url.href.replace(rootUrl,\"\")}`}"
       }
     ]
   },
@@ -1585,7 +1585,7 @@
     ]
   },
   "bjfu.edu.cn": {
-    "_name": "北京师范大学",
+    "_name": "北京林业大学",
     "graduate": [
       {
         "title": "研究生院培养动态",
@@ -4962,7 +4962,7 @@
         "target": "/github/contributors/:user/:repo"
       },
       {
-        "title": "Unknown",
+        "title": "File Commits",
         "docs": "https://docs.rsshub.app/routes/programming",
         "source": [
           "/:user/:repo/blob/:branch/*filepath"
@@ -5837,9 +5837,9 @@
         "title": "果壳网专栏",
         "docs": "https://docs.rsshub.app/routes/new-media",
         "source": [
-          "/"
+          "/:channel"
         ],
-        "target": "/guokr/:channel"
+        "target": "/guokr/column/:channel"
       },
       {
         "title": "科学人",
@@ -8277,7 +8277,7 @@
         "source": [
           "/"
         ],
-        "target": "/minecraft/version"
+        "target": "/minecraft/version/:versionType?/:linkType?"
       }
     ]
   },
@@ -8293,6 +8293,19 @@
           "/"
         ],
         "target": "/missav/new"
+      }
+    ]
+  },
+  "miui.com": {
+    "_name": "MIUI",
+    "web.vip": [
+      {
+        "title": "小米社区用户发帖",
+        "docs": "https://docs.rsshub.app/routes/bbs",
+        "source": [
+          "/page/info/mio/mio/homePage"
+        ],
+        "target": "/miui(_,url)=>`/miui/community/user/${new URL(url).searchParams.get(\"uid\")}`"
       }
     ]
   },
@@ -9381,6 +9394,19 @@
           "/"
         ],
         "target": "/nowcoder/schedule"
+      }
+    ]
+  },
+  "ntdm9.com": {
+    "_name": "NT动漫",
+    ".": [
+      {
+        "title": "番剧详情",
+        "docs": "https://docs.rsshub.app/routes/anime",
+        "source": [
+          "/video/:id"
+        ],
+        "target": "/ntdm/video/:id"
       }
     ]
   },
@@ -13735,6 +13761,14 @@
     "_name": "報導者",
     ".": [
       {
+        "title": "分類",
+        "docs": "https://docs.rsshub.app/routes/new-media",
+        "source": [
+          "/:category"
+        ],
+        "target": "/twreporter/category/:category"
+      },
+      {
         "title": "最新",
         "docs": "https://docs.rsshub.app/routes/new-media",
         "source": [
@@ -15704,6 +15738,19 @@
           "/portfolio/:id"
         ],
         "target": "/zimuxia/portfolio/:id"
+      }
+    ]
+  },
+  "zjut.edu.cn": {
+    "_name": "浙江工业大学",
+    "www.news": [
+      {
+        "title": "浙工大新闻",
+        "docs": "https://docs.rsshub.app/routes/university",
+        "source": [
+          "/:type/list.htm"
+        ],
+        "target": "/zjut/news/:type"
       }
     ]
   },
